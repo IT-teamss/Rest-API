@@ -7,12 +7,18 @@ public class Program
 {
     private static string PerformRequest(string url)
     {
-        var client = new HttpClient(); //базовый класс відправлення чи отримання Http запитів..
+        //Console application for working with remote REST API
+        //- ability to send a request to a remote API
+        //- method API returns 2 lists - Products and Categories
+        //- the application should output the received response to the console
+        
+        
+        var client = new HttpClient(); 
 
-        var response = client.GetAsync(url).Result; // Отправка запроса GET, в качестве асинхронной операции.
-        if (response.IsSuccessStatusCode) // отримує значення, яке вказує чм вдала відповідь Http
+        var response = client.GetAsync(url).Result; 
+        if (response.IsSuccessStatusCode) 
         {
-            return response.Content.ReadAsStringAsync().Result; // серіалізація з json в строку
+            return response.Content.ReadAsStringAsync().Result; 
         }
 
         return null;
